@@ -1,0 +1,60 @@
+query GetEntryBlobs($owner: String!, $name: String!, $expression: String = "refs/heads/master") {
+  repository(owner: $owner, name: $name) {
+    object(expression: $expression) {
+      ... CommitFields
+    }
+  }
+}
+
+fragment CommitFields on Commit {
+  tree {
+    ... TreeFields
+  }
+}
+
+fragment TreeFields on Tree {
+  entries {
+    type
+    name
+    object {
+      ... on Tree {
+        entries {
+          type
+          name
+          object {
+            ... on Tree {
+              entries {
+                type
+                name
+                object {
+                  ... on Tree {
+                    entries {
+                      type
+                      name
+                      object {
+                        ... on Tree {
+                          entries {
+                            type
+                            name
+                            object {
+                              ... BlobFields
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment BlobFields on Blob {
+  commitUrl
+  text
+}
