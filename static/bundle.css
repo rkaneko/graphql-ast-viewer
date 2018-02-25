@@ -1,0 +1,2 @@
+@charset "UTF-8";.Top_Container{display:grid;grid-template-rows:72px auto;grid-template-columns:repeat(2,1fr);height:100vh;padding:0;margin:0}.Top_Header{grid-row:1/2;padding:0;margin:0}.Top_SourcePart{grid-row:2/3;grid-column:1/2;height:100%;padding:0;margin:0}.Top_AstPart{grid-row:2/3;grid-column:2/3;height:100%;padding:0;margin:0}.top-AstPart_container{white-space:pre-line}.top-AstPart_preview{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}
+/*# sourceMappingURL=bundle.css.map*/
